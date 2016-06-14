@@ -2,21 +2,30 @@
 ## functions do
 
 ## Write a short comment describing this function
+#The first function, makeCacheMatrix creates a special "Matrix"
+
 
 makeCacheMatrix <- function(x = matrix()) {
- inv <-NULL
-  set <-function(y){
+
+ inv <-NULL              
+ #set the value of the matrix
+  set <-function(y){ 
     x <<- y
     inv <<- NULL
   }
-  get <-function()x
-  setInverse<- function(inverse) inv<<- inverse
-  getInverse<- function() inv
+  get <-function()x      #get the value of the matrix
+  setInverse<- function(inverse) inv<<- inverse    #set the value of the inverse of the matrix
+  getInverse<- function() inv      #get the value of the inverse of the matrix
   list(set=set,get=get,setInverse=setInverse,getInverse=getInverse)
 }
 
 
 ## Write a short comment describing this function
+#The following function calculates the inverse of the special "Matrix" created with the above function. 
+#However, it first checks to see if the inverse matrix has already been calculated. 
+#If so, it gets the inverse matrix from the cache and skips the computation. 
+#Otherwise, it calculates the inverse of the matrix and sets the value of the mean in the 
+#cache via the setInverse function.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
